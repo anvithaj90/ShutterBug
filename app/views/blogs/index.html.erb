@@ -1,0 +1,32 @@
+<h1>Listing Photos</h1>
+<hr />
+<table cellpadding = "10" border="2" aligin="center">
+  <tr>
+    <th>Picture</th>
+    <th>Description</th>
+    <th>Likes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%= image_tag blog.photo.url(:small) %></td>
+    <td>
+      <u>Name</u> :-<%= blog.name %>
+      <p><u>Description</u> :-<%= blog.description %></p>
+      <p><u>User_id</u>:-<%= blog.user_id %></p>
+    </td>
+
+    <td><%= link_to 'Like','#' %></td>
+    <td><%= link_to 'Show', blog %></td>
+    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+    <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Blog', new_blog_path %>

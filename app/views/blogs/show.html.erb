@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<p>   <%= image_tag @blog.photo.url(:small) %></p>
+<p>
+  <b>Name:</b>
+  <%= @blog.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @blog.description %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @blog.user_id %>
+</p>
+
+<p>
+  <b>Likes:</b>
+  <%= @blog.likes %>
+</p>
+
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Show Blogs', blogs_path %>

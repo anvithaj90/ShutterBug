@@ -1,0 +1,23 @@
+<li>
+  <span class="content">
+    <table cellpadding=20>
+      <td>
+        <p><%= image_tag blog.photo.url(:small) %></p>
+
+      </td>
+     <td>
+       <p>Name : <%= blog.name %></p>
+       <p>Description : <%= blog.description %></p>
+     </td>
+   </table>
+
+  </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(blog.created_at) %> ago.
+  </span>
+
+</li>
+<%= pluralize blog.reputation_value_for(:likes).to_i, "vote" %>
+<%= link_to "Like", like_blog_path(blog,type: "Like"), method: "post" %>
+<%= link_to "Unlike", like_blog_path(blog,type: "Unlike"), method: "post" %>
+<hr />

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+
+
+<div class="span8">
+  <% if @user.blogs.any? %>
+      <h3>Blogs (<%= @user.blogs.count %>)</h3>
+      <ol class="blogs">
+        <%= render @blogs %>
+      </ol>
+      <%= will_paginate @blogs %>
+  <% end %>
+</div>
+</div>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Show Users', users_path, :remote => true %>
